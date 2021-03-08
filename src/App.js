@@ -6,15 +6,15 @@ import {
   Route,
   Switch
 } from "react-router-dom";
-import {withRouter} from 'react-router';
 
+//main application renders header along with Home page and routing config
 function App() {
   return (
     <Switch>
           <div className="App">
             <Header />
             <Route exact path="/" component={Home} />
-            <Route path="/cart" component={withRouter(Cart)} />
+            <Route path="/cart" component={Cart} />
           </div>
     </Switch>
   );

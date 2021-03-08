@@ -1,3 +1,4 @@
+//add item to cart, it already added increase the quantity
 export const addItemToCart = (cartItems, cartItemToAdd) => {
     const existingCartItem = cartItems.find(
       cartItem => cartItem.id === cartItemToAdd.id
@@ -14,6 +15,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
   };
   
+  //remove item from cart, decrease the quantity one by oneand remove completely zero
   export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     const existingCartItem = cartItems.find(
       cartItem => cartItem.id === cartItemToRemove.id
@@ -28,4 +30,9 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
         ? { ...cartItem, quantity: cartItem.quantity - 1 }
         : cartItem
     );
+  };
+
+  //delete item from the cart
+  export const clearItemFromCart = (cartItems, cartItemToClear) => {
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToClear.id);
   };

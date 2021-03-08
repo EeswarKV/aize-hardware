@@ -1,23 +1,21 @@
 import React from 'react';
-// import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './product-list-styles.js';
 import {connect} from 'react-redux';
 import {addItem} from '../../../redux/cart/cart.actions';
 
-
-const renderButtonText = () => {
-    return(<span>Add to cart</span>);
-}
-
+//generates the list of products as a card layouts
+//recieves inouts productlist from search and additem from redux
 const ProductList = ({productList=[], addItem}) => {
+
+  //use the styles for material ui
   const classes = useStyles();
+
   return (
     <div className={classes.productlist}>
     { productList.map((data) => {
@@ -38,8 +36,8 @@ const ProductList = ({productList=[], addItem}) => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <div className={classes.cartbutton} size="large" color="secondary" onClick={()=>addItem(data)}>
-                        {renderButtonText()}
+                    <div className={classes.cartbutton} size="large" color="secondary" onClick={()=>addItem(data)} >
+                    <span>Add to cart</span>
                     </div>
                   </CardActions>
                 </Card>
@@ -52,10 +50,10 @@ const ProductList = ({productList=[], addItem}) => {
   );
 }
 
+//add the item to redux when click on add to cart 
 const mapDispatchToProps = dispatch => ({
     addItem:item => dispatch(addItem(item))
 })
 
+//connect the component to redux state
 export default connect(null,mapDispatchToProps)(ProductList);
-
-// export default ProductList;

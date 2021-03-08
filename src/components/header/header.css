@@ -53,8 +53,8 @@
     font-weight: bold
   }
   .nav-list:hover{
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2); 
     transform: scale(1.2);
     text-decoration: none;
   }
@@ -67,6 +67,10 @@
     .header {
       padding: 0px 10px;
       height: 80px;
+    }
+    .nav-list a{
+      color: white;
+      font-size: 23px;
     }
     .nav-list:last-child{
       padding-bottom: 10px;
@@ -97,7 +101,7 @@
     }
     .nav-options.active {
       left: 0;
-    background: red;
+    background: #39b54a;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 9999;

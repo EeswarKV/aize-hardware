@@ -10,6 +10,7 @@ const persistConfig = {
     whitelist: ['cart']
   };
   
+  //total number of reducers
   const rootReducer = combineReducers({
     cart: cartReducer,
   });
